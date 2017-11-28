@@ -1,0 +1,76 @@
+apply plugin: 'idea'
+apply plugin: 'java'
+
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.3.RELEASE")
+    }
+}
+
+
+
+idea {
+    project {
+        jdkName = '1.8'
+        languageLevel = '1.8'
+        vcs = 'Git'
+    }
+    module {
+        // if you hate browsing Javadoc
+        downloadJavadoc = false
+
+        // and love reading sources :)
+        downloadSources = true
+    }
+}
+
+dependencies {
+    ext.springVersion = "4.3.8.RELEASE"
+    ext.springBootVersion = "1.5.3.RELEASE"
+    ext.slf4jVersion = "1.7.21"
+
+
+    compile "org.springframework:spring-beans:${springVersion}"
+    compile "org.springframework:spring-core:${springVersion}"
+    compile "org.springframework:spring-context:${springVersion}"
+    compile "org.springframework:spring-expression:${springVersion}"
+    compile "org.springframework:spring-web:${springVersion}"
+    compile "org.springframework:spring-webmvc:${springVersion}"
+    compile "org.springframework:spring-test:${springVersion}"
+    compile "org.springframework:spring-orm:${springVersion}"
+
+
+    compile "org.springframework.boot:spring-boot-autoconfigure:${springBootVersion}"
+    compile "org.springframework.boot:spring-boot:${springBootVersion}"
+    compile "org.springframework.boot:spring-boot-starter:${springBootVersion}"
+    compile "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
+    compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    compile "org.springframework.boot:spring-boot-starter-aop:${springBootVersion}"
+    compile "org.springframework.boot:spring-boot-starter-tomcat:${springBootVersion}"
+    compile "org.springframework.statemachine:spring-statemachine-core:1.2.7.RELEASE"
+
+
+    compile "org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final"
+    compile "org.hibernate:hibernate-java8:5.0.9.Final"
+    compile "mysql:mysql-connector-java:5.1.39"
+
+    compile "org.apache.commons:commons-lang3:3.4"
+    compile "commons-io:commons-io:2.5"
+
+    compile "commons-logging:commons-logging:1.2"
+    compile "commons-codec:commons-codec:1.10"
+    compile "javax.servlet:javax.servlet-api:3.1.0"
+    compile "org.slf4j:slf4j-api:${slf4jVersion}"
+
+
+
+
+}
+
