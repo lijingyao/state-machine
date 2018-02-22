@@ -51,7 +51,11 @@ public class StatusApp {
                     .and()
                     .withExternal()
                     .source(OrderStatus.WAIT_RECEIVE).target(OrderStatus.FINISH)
-                    .event(OrderStatusChangeEvent.RECEIVED);
+                    .event(OrderStatusChangeEvent.RECEIVED)
+                    .and()
+                    .withExternal()
+                    .source(OrderStatus.WAIT_RECEIVE).target(OrderStatus.CLOSED)
+                    .event(OrderStatusChangeEvent.REFUND);
         }
 
     }
